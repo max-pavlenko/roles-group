@@ -36,9 +36,9 @@ export class SidebarTabsComponent<T extends Named & Unique> {
     this.tabSelected.emit(item);
   }
 
-  onEditItem(event: Event, item: T, input: HTMLInputElement) {
-    event.stopPropagation();
+  onEditItem(item: T, input: HTMLInputElement) {
     this.editedTab = item;
+    this.selectedTab = item;
     setTimeout(() => input.focus(), 1);
     this.tabNameControl.setValue(item.name);
   }
