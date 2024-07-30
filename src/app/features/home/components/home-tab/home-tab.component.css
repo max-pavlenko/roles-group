@@ -1,0 +1,68 @@
+:host {
+  display: block;
+  container-type: inline-size;
+}
+
+.home-tab {
+  display: flex;
+  min-height: 88svh;
+
+  @container (width <= 550px){
+    flex-direction: column;
+  }
+}
+
+app-sidebar-tabs {
+  flex: 0.2;
+  max-height: 100%;
+
+  @container (width <= 550px){
+    flex: initial;
+    margin-bottom: 20px;
+  }
+}
+
+.tab__body {
+  flex-direction: column;
+  padding: 10px 0 10px 10px;
+  flex: 1;
+  container-type: inline-size;
+}
+
+.tab__heading {
+  justify-content: space-between;
+  text-transform: capitalize;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  font-size: 22px;
+  border-bottom: 2px solid var(--black);
+
+  @container (width <= 500px){
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding-inline: 0;
+    padding-top: 0;
+  }
+}
+
+.tab__heading-filters {
+  gap: 8px;
+}
+
+.tab__footer {
+  justify-content: flex-end;
+  padding: 10px 0;
+}
+
+.tab__no-selected, .tab__no-items {
+  align-self: center;
+  text-align: center;
+  padding: 20px 0;
+}
+
+input {
+  border: 1px solid var(--black);
+  border-radius: 6px;
+  padding: 3px 6px;
+}

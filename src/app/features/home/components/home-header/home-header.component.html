@@ -1,0 +1,13 @@
+<header class="vertical-center-flex">
+  <div class="header__inception vertical-center-flex">
+    <h2>Permissions</h2>
+    <label class="header__select-on-change vertical-center-flex">
+      <input type="checkbox" [formControl]="isSelectOnTabChangeControl">
+      Select entity on tab change
+    </label>
+  </div>
+
+  <nav>
+    <app-tabs [initialSelected]="selectedTab" [items]="tabs" (selected)="selected.emit($event)"/>
+  </nav>
+</header>

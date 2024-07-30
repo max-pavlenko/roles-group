@@ -1,0 +1,12 @@
+.flex {
+  display: flex;
+}
+
+.vertical-center-flex {
+  display: flex;
+  align-items: center;
+}
+
+.hidden {
+  display: none !important;
+}

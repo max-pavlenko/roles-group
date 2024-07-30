@@ -1,0 +1,9 @@
+<app-home-header (selected)="onTabSelected($event)" [selectedTab]="selectedTab" [tabs]="tabs"></app-home-header>
+<ng-container [ngSwitch]="selectedTab?.name">
+  <ng-container *ngSwitchCase="HomeTab.Groups">
+    <app-home-tab appGroupsTabContent></app-home-tab>
+  </ng-container>
+  <ng-container *ngSwitchCase="HomeTab.Roles">
+    <app-home-tab appRolesTabContent></app-home-tab>
+  </ng-container>
+</ng-container>

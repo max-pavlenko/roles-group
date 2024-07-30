@@ -1,0 +1,13 @@
+:host {
+  display: block;
+
+  &:nth-child(even) {
+    background-color: var(--gray);
+  }
+}
+
+li {
+  gap: 20px;
+  padding: 8px;
+  border-bottom: 1px solid var(--black);
+}

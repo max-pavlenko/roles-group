@@ -1,0 +1,39 @@
+<div class="home-tab">
+  <app-sidebar-tabs (itemEdited)="onItemEdited($event)" (newAdded)="homeTabContent.onParentItemAdded()" (tabSelected)="onTabSelected($event)"
+                    [domain]="homeTabContent.parentTitle" [items]="homeTabContent.parentItems()!" [selectedTab]="selectedParentItem"></app-sidebar-tabs>
+
+  <form [formGroup]="filtersForm" class="flex tab__body">
+    <div class="tab__heading vertical-center-flex">
+      <h4>{{ homeTabContent.subItemsKey }}</h4>
+      <div class="flex tab__heading-filters">
+        <input formControlName="searchQuery" placeholder="Search..." type="text">
+        <select formControlName="offset">
+          <option [value]="OffsetSize.All">Show all</option>
+          <option [value]="OffsetSize.Five">{{ OffsetSize.Five }}</option>
+          <option [value]="OffsetSize.Three">{{ OffsetSize.Three }}</option>
+        </select>
+      </div>
+    </div>
+
+    @if (selectedParentItem) {
+      <div class="tab__content">
+        @for (item of items; track item.name) {
+          <app-list-item>
+            <input type="checkbox" #checkbox [checked]="isItemSelected(item)" (change)="onItemToggled(item, checkbox.checked)">
+            <span>{{ item.name }}</span>
+          </app-list-item>
+        } @empty {
+          <h3 class="tab__no-items">No {{ homeTabContent.subItemsKey }} existent... So far</h3>
+        }
+      </div>
+
+      <div class="flex tab__footer">
+        <app-pagination formControlName="page" [total]="homeTabContent.data()!.total" [pagination]="homeTabContent.pagination()!"/>
+      </div>
+    } @else {
+      <h3 class="tab__no-selected">
+        Select {{ homeTabContent.parentTitle }} to the left to view {{ homeTabContent.subItemsKey }}
+      </h3>
+    }
+  </form>
+</div>

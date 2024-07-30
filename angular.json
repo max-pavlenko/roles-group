@@ -5,7 +5,11 @@
   "projects": {
     "roles-group": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "changeDetection": "OnPush"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -27,7 +31,7 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles/styles.css"
             ],
             "scripts": []
           },
@@ -85,7 +89,7 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles/styles.css"
             ],
             "scripts": []
           }

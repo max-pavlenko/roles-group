@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+}
+
+.tab-pane {
+  font-size: 20px;
+  padding: 8px 12px;
+  text-transform: capitalize;
+
+  &.active {
+    transition: none;
+    border-bottom: 4px solid var(--black);
+  }
+}

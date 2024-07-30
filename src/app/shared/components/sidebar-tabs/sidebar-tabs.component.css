@@ -1,0 +1,91 @@
+:host {
+  --border-width: 3px;
+  --edit-icon-size: 24px;
+}
+
+.tab-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1px;
+  border-right: var(--border-width) solid var(--black);
+
+  @media screen and (width <= 575px) {
+    border-right: none;
+  }
+}
+
+.tab-panel__item {
+  justify-content: space-between;
+}
+
+.tab-panel__item-container {
+  background-color: var(--black-gray);
+  border-radius: 6px 0 0 6px;
+  padding: 4px 6px;
+  text-align: start;
+  font-size: 16px;
+  border: var(--border-width) solid var(--black);
+  border-right: none;
+
+  @media (width <= 575px) {
+    border-right: var(--border-width) solid var(--black);
+    border-radius: 6px;
+  }
+
+  &:first-child {
+    margin-top: 20px;
+  }
+
+  &.active {
+    background-color: var(--white);
+    border-right: var(--border-width) solid var(--white);
+    margin-right: calc(-1 * var(--border-width));
+
+    @media (width <= 575px) {
+      margin-right: initial;
+      border-right: var(--border-width) solid var(--black);
+    }
+  }
+
+  &:hover .tab-panel__edit-icon {
+    opacity: 1;
+  }
+}
+
+.tab-panel__edit-icon {
+  opacity: 0;
+  height: var(--edit-icon-size);
+  width: var(--edit-icon-size);
+}
+
+.tab-panel__edit-btn {
+  height: var(--edit-icon-size);
+
+  &:focus-visible .tab-panel__edit-icon {
+    opacity: 1;
+  }
+}
+
+.tab-panel__add-new {
+  justify-content: center;
+  text-transform: capitalize;
+  padding: 6px;
+  gap: 8px;
+}
+
+.tab-panel__item-edit-input {
+  height: var(--edit-icon-size);
+  outline: none;
+  border-bottom: 2px solid var(--electric-blue);
+  background-color: transparent;
+  width: 100%;
+  font-size: 16px;
+}
+
+.tab-panel__item-name {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 150px;
+}

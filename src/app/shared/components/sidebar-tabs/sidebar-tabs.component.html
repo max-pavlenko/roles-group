@@ -1,0 +1,21 @@
+<div class="tab-panel">
+  @for (item of items; track item.name) {
+    <button class="tab-panel__item-container" [class.active]="selectedTab?.id === item.id" (click)="onItemClick(item)">
+      <form (click)="$event.stopPropagation()" (ngSubmit)="onItemEdited()" [class.hidden]="editedTab?.id !== item.id">
+        <input #editInput class="tab-panel__item-edit-input" type="text" [formControl]="tabNameControl" (blur)="onEditBlur()">
+      </form>
+
+      <div class="tab-panel__item vertical-center-flex" [class.hidden]="editedTab?.id === item.id">
+        <span class="tab-panel__item-name">{{ item.name }}</span>
+        <button class="tab-panel__edit-btn" (click)="onEditItem($event, item, editInput)">
+          <img class="tab-panel__edit-icon" width="24" height="24" ngSrc="/icons/edit.svg" alt="edit">
+        </button>
+      </div>
+    </button>
+  }
+
+  <button (click)="addNewGroup()" class="tab-panel__add-new vertical-center-flex">
+    <img alt="plus" height="20" ngSrc="/icons/plus.svg" width="20">
+    Add new {{ domain }}
+  </button>
+</div>

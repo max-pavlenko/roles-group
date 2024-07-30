@@ -1,0 +1,5 @@
+@for (tab of items; track tab.name) {
+  <button class="tab-pane" [class.active]="selectedItem?.id === tab.id" (click)="onTabPaneClick(tab)">
+    {{ tab.name }}
+  </button>
+}

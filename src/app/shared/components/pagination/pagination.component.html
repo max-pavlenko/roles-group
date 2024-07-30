@@ -1,0 +1,5 @@
+@for (page of totalPages; track page) {
+  <button class="page-button" [class.active]="pagination.page === page" [disabled]="isDisabled" (click)="onPageClick(page)">
+    {{page}}
+  </button>
+}
